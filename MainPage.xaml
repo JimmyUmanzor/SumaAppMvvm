@@ -1,0 +1,34 @@
+﻿<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:SumaAppMvvm"
+             x:Class="SumaAppMvvm.MainPage">
+    <ContentPage.BindingContext>
+        <local:MainViewModel />
+    </ContentPage.BindingContext>
+    <ContentPage.Resources>
+        <Style TargetType="Entry">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BackgroundColor" Value="LightPink"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+        <Style TargetType="Button">
+            <Setter Property="Margin" Value="10"/>
+            <Setter Property="BackgroundColor" Value="Crimson"/>
+            <Setter Property="TextColor" Value="White"/>
+        </Style>
+    </ContentPage.Resources>
+    <StackLayout Padding="20">
+        <Label Text="Ingrese el primer número:" TextColor="Red" FontSize="Large"/>
+        <Entry x:Name="PrimerNumero" Text="{Binding PrimerNumero}" Keyboard="Numeric"/>
+
+        <Label Text="Ingrese el segundo número:" TextColor="Red" FontSize="Large"/>
+        <Entry x:Name="SegundoNumero" Text="{Binding SegundoNumero}" Keyboard="Numeric"/>
+
+        <Button Text="Sumar" Command="{Binding ComandoSumar}"/>
+        <Button Text="Limpiar" Command="{Binding ComandoLimpiar}"/>
+
+        <Label Text="{Binding Resultado}" TextColor="Blue" FontSize="Large"/>
+
+        <Label Text="{Binding MensajeError}" TextColor="Red" FontSize="Medium" IsVisible="{Binding TieneError}"/>
+    </StackLayout>
+</ContentPage>
